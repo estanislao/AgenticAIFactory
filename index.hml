@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic AI Factory HupData — V3.7</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2340; --slate:#4A5578; --ink:#24262E; --muted:#6B6F7B;
+    --paper:#FAFAF8; --card:#FFFFFF; --line:#E2E3E8;
+    --teal:#0F6E56; --purple:#534AB7; --coral:#993C1D; --amberbg:#FAEEDA;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 "Public Sans",sans-serif}
+  header.doc{background:var(--navy);color:#fff;padding:56px 24px 44px}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  header .wrap{padding:0}
+  .brand{font:600 13px/1 "Archivo",sans-serif;letter-spacing:.22em;color:#9AA3C0;text-transform:uppercase}
+  h1.title{font:700 40px/1.15 "Archivo",sans-serif;margin:18px 0 10px;max-width:760px}
+  .subtitle{color:#C3C9DC;font-size:17px;margin:0 0 22px}
+  .chips{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{font:600 12px/1 "Archivo",sans-serif;letter-spacing:.06em;border:1px solid #3A456B;color:#C3C9DC;border-radius:999px;padding:8px 14px}
+  .chip.v{background:#fff;color:var(--navy);border-color:#fff}
+  nav.toc{border-bottom:1px solid var(--line);background:var(--card)}
+  nav.toc .wrap{display:flex;gap:6px 22px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+  nav.toc a{color:var(--slate);text-decoration:none;font:600 13px/1.3 "Archivo",sans-serif}
+  nav.toc a:hover{color:var(--navy)}
+  main{padding:16px 0 80px}
+  section{margin-top:56px}
+  h2{font:700 26px/1.25 "Archivo",sans-serif;color:var(--navy);margin:0 0 6px;padding-top:8px}
+  h2 .n{color:#AEB3C6;margin-right:10px}
+  h3{font:600 18px/1.3 "Archivo",sans-serif;color:var(--slate);margin:30px 0 8px}
+  p{margin:12px 0}
+  ul{margin:10px 0 14px;padding-left:22px}
+  li{margin:7px 0}
+  strong{font-weight:600}
+  .rule{height:3px;width:56px;background:var(--navy);border-radius:2px;margin:0 0 18px}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14.5px;background:var(--card)}
+  th{background:var(--navy);color:#fff;text-align:left;font:600 13px/1.35 "Archivo",sans-serif;padding:10px 12px}
+  td{border:1px solid var(--line);padding:10px 12px;vertical-align:top}
+  tr:nth-child(even) td{background:#FBFBFA}
+  .note{background:#F1F2F6;border-left:4px solid var(--navy);padding:14px 18px;margin:18px 0;font-size:15px;color:#3C3F49}
+  .note em{font-style:normal;font-weight:600;color:var(--navy)}
+  figure{margin:26px 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 18px 0;overflow:hidden}
+  figure svg{display:block;width:100%;height:auto;max-width:680px;margin:0 auto}
+  figcaption{font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin:16px -18px 0;padding:12px 18px;background:#FBFBFA}
+  figcaption b{color:var(--navy);font-family:"Archivo",sans-serif}
+  .changelog{font-size:13px;color:var(--muted)}
+  footer.doc{border-top:1px solid var(--line);margin-top:70px;padding:26px 0;color:var(--muted);font-size:13px}
+  @media print{ nav.toc{display:none} header.doc{padding:34px 24px} section{page-break-inside:avoid} figure{page-break-inside:avoid} }
+</style>
+</head>
+<body>
+
+<header class="doc">
+  <div class="wrap">
+    <div class="brand">HupData · Data &amp; AI Solutions</div>
+    <h1 class="title">Agentic AI Factory HupData</h1>
+    <p class="subtitle">Arquitetura, Governança e Linha de Produção — documento interno de engenharia e operações</p>
+    <div style="border-left:3px solid #C3C9DC;padding:4px 0 4px 18px;margin:6px 0 26px;max-width:760px">
+      <p style="font:600 21px/1.35 'Archivo',sans-serif;color:#FFFFFF;margin:0 0 8px">Agentes de IA que assumem rotinas inteiras nas PMEs brasileiras</p>
+      <p style="font-size:15px;color:#C3C9DC;margin:0">A mesma engenharia aplicada a grandes corporações, empacotada em solução plug-and-play para PME. Aumentam a produtividade da equipe e reduzem o custo — monitorando, analisando, priorizando e apoiando as melhores decisões, 24/7, sem encargos.</p>
+    </div>
+    <div class="chips">
+      <span class="chip v">V3.7 · Agosto/2026</span>
+      <span class="chip">Substitui a V3.6</span>
+      <span class="chip">Plataforma Claude e MiniMax</span>
+      <span class="chip">Catálogo de 8 agentes · qualquer segmento</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a href="#s0">Modelo de escala</a><a href="#s0b">Posicionamento</a><a href="#s1">1 · V2→V3</a><a href="#s2">2 · Plano comercial</a>
+  <a href="#s3">3 · Orquestrador</a><a href="#s4">4 · Claude-native</a><a href="#s5">5 · COGS</a>
+  <a href="#s6">6 · Linha de produção</a><a href="#s7">7 · RH enxuto</a><a href="#s8">8 · Infraestrutura</a>
+  <a href="#s9">9 · Huxley</a><a href="#s10">10 · Claims</a><a href="#s11">Síntese</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="s0">
+  <h2>O modelo de escala em uma página</h2><div class="rule"></div>
+  <p>A fábrica não constrói agentes para cada cliente — ela construiu os agentes <strong>uma vez</strong> e, para cada cliente, apenas <strong>configura e instala</strong>. O produto é o <strong>catálogo completo de 8 agentes, para qualquer segmento de PME</strong>; os kits por vertical (o Kit Contabilidade incluído) são apenas recortes comerciais montados a partir dele. É a diferença entre software sob medida (que não escala) e linha de montagem com produto padronizado (que escala).</p>
+
+  <figure>
+    <svg viewBox="0 0 680 780" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Esteira escalável da fábrica com o catálogo de 8 agentes">
+      <defs><marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <rect x="40" y="40" width="600" height="176" rx="12" fill="none" stroke="#888780" stroke-dasharray="4 4"/>
+      <text x="60" y="66" font-family="Archivo" font-size="14" font-weight="600" fill="#444441">Catálogo HupData — 8 agentes, qualquer segmento</text>
+      <g font-family="Public Sans">
+        <rect x="60" y="84" width="132" height="52" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+        <text x="126" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Huxley</text>
+        <text x="126" y="124" text-anchor="middle" font-size="11.5" fill="#534AB7">marketing</text>
+        <rect x="202" y="84" width="132" height="52" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+        <text x="268" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Diana</text>
+        <text x="268" y="124" text-anchor="middle" font-size="11.5" fill="#534AB7">prospecção</text>
+        <rect x="344" y="84" width="132" height="52" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+        <text x="410" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Marcel</text>
+        <text x="410" y="124" text-anchor="middle" font-size="11.5" fill="#534AB7">comercial</text>
+        <rect x="486" y="84" width="132" height="52" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+        <text x="552" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Vera</text>
+        <text x="552" y="124" text-anchor="middle" font-size="11.5" fill="#534AB7">RH e pessoas</text>
+        <rect x="60" y="148" width="132" height="52" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+        <text x="126" y="170" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Bob</text>
+        <text x="126" y="188" text-anchor="middle" font-size="11.5" fill="#534AB7">backoffice</text>
+        <rect x="202" y="148" width="132" height="52" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+        <text x="268" y="170" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Adam</text>
+        <text x="268" y="188" text-anchor="middle" font-size="11.5" fill="#534AB7">finanças</text>
+        <rect x="344" y="148" width="132" height="52" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+        <text x="410" y="170" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Suporte N1</text>
+        <text x="410" y="188" text-anchor="middle" font-size="11.5" fill="#534AB7">atendimento</text>
+        <rect x="486" y="148" width="132" height="52" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+        <text x="552" y="170" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Simon.AI</text>
+        <text x="552" y="188" text-anchor="middle" font-size="11.5" fill="#534AB7">previsão de demanda</text>
+      </g>
+      <line x1="340" y1="216" x2="340" y2="246" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar1)"/>
+
+      <rect x="40" y="252" width="600" height="118" rx="12" fill="none" stroke="#888780" stroke-dasharray="4 4"/>
+      <text x="60" y="278" font-family="Archivo" font-size="14" font-weight="600" fill="#444441">Plataforma compartilhada — construída uma vez</text>
+      <g font-family="Public Sans">
+        <rect x="60" y="296" width="176" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+        <text x="148" y="318" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Orquestrador</text>
+        <text x="148" y="338" text-anchor="middle" font-size="11.5" fill="#5F5E5A">+ Cost Guard</text>
+        <rect x="252" y="296" width="176" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+        <text x="340" y="318" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Conectores MCP</text>
+        <text x="340" y="338" text-anchor="middle" font-size="11.5" fill="#5F5E5A">Omie, Pipedrive...</text>
+        <rect x="444" y="296" width="176" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+        <text x="532" y="318" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Suíte de evals</text>
+        <text x="532" y="338" text-anchor="middle" font-size="11.5" fill="#5F5E5A">roda sozinha</text>
+      </g>
+      <line x1="340" y1="370" x2="340" y2="400" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar1)"/>
+
+      <rect x="40" y="406" width="600" height="134" rx="12" fill="none" stroke="#888780" stroke-dasharray="4 4"/>
+      <text x="60" y="432" font-family="Archivo" font-size="14" font-weight="600" fill="#444441">Por segmento — kits montados do catálogo (recorte comercial)</text>
+      <g font-family="Public Sans">
+        <rect x="60" y="450" width="176" height="72" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+        <text x="148" y="478" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Kit Contabilidade</text>
+        <text x="148" y="498" text-anchor="middle" font-size="11.5" fill="#993C1D">Bob · Adam · Vera (piloto)</text>
+        <rect x="252" y="450" width="176" height="72" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+        <text x="340" y="478" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Kit Comercial</text>
+        <text x="340" y="498" text-anchor="middle" font-size="11.5" fill="#993C1D">Huxley · Diana · Marcel</text>
+        <rect x="444" y="450" width="176" height="72" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+        <text x="532" y="478" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Composição livre</text>
+        <text x="532" y="498" text-anchor="middle" font-size="11.5" fill="#993C1D">qualquer combinação</text>
+      </g>
+      <line x1="340" y1="540" x2="340" y2="570" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar1)"/>
+
+      <rect x="40" y="576" width="600" height="60" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+      <text x="340" y="600" text-anchor="middle" font-family="Archivo" font-size="14" font-weight="600" fill="#712B13">Por cliente — configuração em 14 dias, nunca desenvolvimento</text>
+      <text x="340" y="622" text-anchor="middle" font-family="Public Sans" font-size="11.5" fill="#993C1D">credenciais no conector pronto · carga da base certificada · evals automáticos · go-live</text>
+      <line x1="340" y1="636" x2="340" y2="666" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar1)"/>
+
+      <rect x="40" y="672" width="600" height="72" rx="12" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="340" y="700" text-anchor="middle" font-family="Archivo" font-size="14" font-weight="600" fill="#085041">Operação multi-tenant</text>
+      <text x="340" y="722" text-anchor="middle" font-family="Public Sans" font-size="11.5" fill="#0F6E56">1 plataforma · N clientes de qualquer segmento · Cost Guard e logs por conta</text>
+    </svg>
+    <figcaption><b>Figura 1</b> — Esteira escalável: o catálogo completo e a plataforma são ativos amortizados; kits são recortes comerciais por segmento; por cliente há apenas configuração; a operação é multi-tenant.</figcaption>
+  </figure>
+
+  <p>Três mecânicas sustentam a escala:</p>
+  <ul>
+    <li><strong>Amortização total do trabalho pesado:</strong> o Bob do cliente nº 1 e o do nº 47 são o mesmo software — mesmo prompt versionado, mesmo conector, mesma suíte de evals. Melhorias e novos conectores beneficiam todos os clientes no mesmo dia. O time de engenharia não cresce com o número de clientes; cresce com o catálogo — decisão da HupData, não consequência das vendas.</li>
+    <li><strong>Entrega é instalação, não desenvolvimento:</strong> o trabalho por cliente (credenciais no conector pronto, carga da Base Certificada, evals automáticos, go-live) é limitado à meta de &lt; 28h — e o protocolo de medição em 4 buckets (seção 6, Etapa 4) identifica a cada ciclo o próximo bucket a automatizar.</li>
+    <li><strong>Capacidade de instalação terceirizável:</strong> a &lt; 28h/implantação, um especialista interno entrega ~5 implantações/mês. O caminho que realmente escala é o canal: cada Integrador certificado (seção 2.2) adiciona capacidade de onboarding e N1 <strong>sem folha</strong> — o custo já está no revenue share de 18–22%. O gargalo migra de engenharia para ritmo de certificação de parceiros.</li>
+  </ul>
+  <div class="note"><em>Produto vs. recorte comercial:</em> o que a fábrica produz e mantém é o catálogo de 8 agentes, aplicável a qualquer segmento de PME. Os kits existem porque o pitch focado vende melhor em cada ICP (aprendizado do piloto contábil) — mas nenhum agente é exclusivo de vertical, e a expansão do cliente pode cruzar kits livremente.</div>
+
+  <figure>
+    <svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arquitetura de valor na visão do cliente">
+      <defs><marker id="ar8" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <g font-family="Public Sans">
+      <rect x="40" y="30" width="600" height="104" rx="12" fill="none" stroke="#888780" stroke-dasharray="4 4"/>
+      <text x="60" y="56" font-family="Archivo" font-size="14" font-weight="600" fill="#444441">Empresa cliente — conecta ao que ela já usa</text>
+      <rect x="60" y="68" width="280" height="52" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="200" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Sistemas existentes</text>
+      <text x="200" y="108" text-anchor="middle" font-size="11.5" fill="#5F5E5A">ERP · CRM · Folha · Planilhas</text>
+      <rect x="360" y="68" width="260" height="52" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="490" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Canais</text>
+      <text x="490" y="108" text-anchor="middle" font-size="11.5" fill="#5F5E5A">Teams · WhatsApp · E-mail</text>
+      <line x1="340" y1="134" x2="340" y2="164" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar8)"/>
+      <rect x="110" y="170" width="460" height="70" rx="10" fill="#1B2340"/>
+      <text x="340" y="197" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Agentes Inteligentes HupData</text>
+      <text x="340" y="220" text-anchor="middle" font-size="11" fill="#C3C9DC">Huxley · Diana · Marcel · Vera · Bob · Adam · Suporte N1 · Simon.AI</text>
+      <line x1="340" y1="240" x2="340" y2="270" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar8)"/>
+      <rect x="40" y="276" width="600" height="118" rx="12" fill="none" stroke="#0F6E56" stroke-dasharray="4 4"/>
+      <text x="60" y="302" font-family="Archivo" font-size="14" font-weight="600" fill="#085041">Entregas — onde o time já está</text>
+      <rect x="60" y="316" width="132" height="60" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="126" y="342" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">Prioridades</text>
+      <text x="126" y="360" text-anchor="middle" font-size="11.5" fill="#0F6E56">diárias</text>
+      <rect x="202" y="316" width="132" height="60" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="268" y="342" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">Resumos</text>
+      <text x="268" y="360" text-anchor="middle" font-size="11.5" fill="#0F6E56">e tarefas</text>
+      <rect x="344" y="316" width="132" height="60" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="410" y="342" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">Insights</text>
+      <text x="410" y="360" text-anchor="middle" font-size="11.5" fill="#0F6E56">preditivos</text>
+      <rect x="486" y="316" width="132" height="60" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="552" y="342" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">Automação</text>
+      <text x="552" y="360" text-anchor="middle" font-size="11.5" fill="#0F6E56">de processos</text>
+      </g>
+    </svg>
+    <figcaption><b>Figura 2</b> — Arquitetura de valor na visão do cliente: os agentes conectam-se aos sistemas e canais que a empresa já usa e entregam prioridades, resumos, insights e automação — sem exigir equipe técnica do lado do cliente.</figcaption>
+  </figure>
+</section>
+
+<section id="s0b">
+  <h2>Posicionamento de mercado</h2><div class="rule"></div>
+  <p>O posicionamento nasce das dores estruturais da PME brasileira — não de uma tese abstrata de IA. Quatro dores levam a quatro consequências no dia a dia da operação; a HupData responde a cada uma com um pilar explícito da proposta de valor. É o mapa que orienta o discurso comercial, o material de vendas e a priorização do catálogo.</p>
+  <figure>
+    <svg viewBox="0 0 680 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Das dores da PME ao posicionamento HupData">
+      <defs><marker id="arp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <g font-family="Public Sans">
+      <rect x="270" y="20" width="140" height="40" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="340" y="45" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">PME brasileira</text>
+      <path d="M300 60 L110 60 L110 84" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <path d="M325 60 L263 60 L263 84" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <path d="M355 60 L416 60 L416 84" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <path d="M380 60 L569 60 L569 84" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <rect x="40" y="90" width="140" height="56" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+      <text x="110" y="112" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">Maturidade digital</text>
+      <text x="110" y="130" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">baixa</text>
+      <rect x="193" y="90" width="140" height="56" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+      <text x="263" y="112" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">Custo operacional</text>
+      <text x="263" y="130" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">alto</text>
+      <rect x="346" y="90" width="140" height="56" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+      <text x="416" y="112" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">Falta de mão de</text>
+      <text x="416" y="130" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">obra qualificada</text>
+      <rect x="499" y="90" width="140" height="56" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+      <text x="569" y="112" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">Medo de IA</text>
+      <text x="569" y="130" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">e de custos</text>
+      <line x1="110" y1="146" x2="110" y2="170" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <line x1="263" y1="146" x2="263" y2="170" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <line x1="416" y1="146" x2="416" y2="170" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <line x1="569" y1="146" x2="569" y2="170" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <rect x="40" y="176" width="140" height="56" rx="8" fill="#F7F7F9" stroke="#B9BCC6"/>
+      <text x="110" y="198" text-anchor="middle" font-size="11.5" fill="#3C3F49">Uso isolado de</text>
+      <text x="110" y="216" text-anchor="middle" font-size="11.5" fill="#3C3F49">IA generativa</text>
+      <rect x="193" y="176" width="140" height="56" rx="8" fill="#F7F7F9" stroke="#B9BCC6"/>
+      <text x="263" y="198" text-anchor="middle" font-size="11.5" fill="#3C3F49">Encargos e baixa</text>
+      <text x="263" y="216" text-anchor="middle" font-size="11.5" fill="#3C3F49">produtividade</text>
+      <rect x="346" y="176" width="140" height="56" rx="8" fill="#F7F7F9" stroke="#B9BCC6"/>
+      <text x="416" y="198" text-anchor="middle" font-size="11.5" fill="#3C3F49">Turnover e</text>
+      <text x="416" y="216" text-anchor="middle" font-size="11.5" fill="#3C3F49">retrabalho</text>
+      <rect x="499" y="176" width="140" height="56" rx="8" fill="#F7F7F9" stroke="#B9BCC6"/>
+      <text x="569" y="198" text-anchor="middle" font-size="11.5" fill="#3C3F49">Barreiras</text>
+      <text x="569" y="216" text-anchor="middle" font-size="11.5" fill="#3C3F49">de entrada</text>
+      <path d="M110 232 L110 258 L300 258 L300 276" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <path d="M263 232 L263 258 L325 258 L325 276" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <path d="M416 232 L416 258 L355 258 L355 276" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <path d="M569 232 L569 258 L380 258 L380 276" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <rect x="255" y="282" width="170" height="48" rx="8" fill="#1B2340"/>
+      <text x="340" y="311" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">HUPDATA</text>
+      <path d="M300 330 L110 330 L110 354" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <path d="M325 330 L263 330 L263 354" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <path d="M355 330 L416 330 L416 354" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <path d="M380 330 L569 330 L569 354" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arp)"/>
+      <rect x="40" y="360" width="140" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="110" y="382" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">Solução</text>
+      <text x="110" y="400" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">plug-and-play</text>
+      <rect x="193" y="360" width="140" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="263" y="382" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">ROI</text>
+      <text x="263" y="400" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">mensurável</text>
+      <rect x="346" y="360" width="140" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="416" y="382" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">Precificação</text>
+      <text x="416" y="400" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">acessível</text>
+      <rect x="499" y="360" width="140" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="569" y="382" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">LGPD e</text>
+      <text x="569" y="400" text-anchor="middle" font-size="11.5" font-weight="600" fill="#085041">segurança</text>
+      <text x="40" y="452" font-size="11" fill="#6B6F7B">Leitura: cada dor (vermelho) gera uma consequência (cinza); cada pilar do posicionamento (verde) responde a uma delas.</text>
+      </g>
+    </svg>
+    <figcaption><b>Figura 3</b> — Das dores da PME ao posicionamento HupData: maturidade digital baixa, custo operacional alto, falta de mão de obra qualificada e medo de IA — respondidas por plug-and-play, ROI mensurável, precificação acessível e LGPD por escrito.</figcaption>
+  </figure>
+  <p>Este mapa também explica escolhas do documento: o pilar "precificação acessível" sustenta a tabela por tokens da seção 2; o "ROI mensurável" vira o rito do Dia 30 na Etapa 4; o "plug-and-play" é a razão de existir dos conectores MCP prontos; e "LGPD e segurança" é a seção 3.4 — incluindo o que deliberadamente não prometemos.</p>
+</section>
+
+<section id="s1">
+  <h2><span class="n">1</span>O que muda da V2 para a V3</h2><div class="rule"></div>
+  <p>A V2 corrigiu os gargalos estruturais da V1 (MQTT → webhooks, sob medida → kits, time enterprise → time enxuto). A série V3 corrige os desalinhamentos com o plano comercial vigente e incorpora a arquitetura nativa Claude.</p>
+  <table><tr><th>Tema</th><th>V2</th><th>V3</th></tr>
+    <tr><td>Marca</td><td>Grafia incorreta "HubData"</td><td>HupData em todas as ocorrências</td></tr>
+    <tr><td>Pricing de referência</td><td>Ticket "R$ 980 a R$ 2.400/mês"</td><td>Tabela vigente: Start R$ 750 (2M típico / 4M teto) e Business Basic R$ 980 (5M+ tokens)</td></tr>
+    <tr><td>Cost Guard</td><td>Travas por interações/requisições</td><td>Travas por <strong>tokens</strong> contra a franquia; bulk contado por item processado</td></tr>
+    <tr><td>Canal</td><td>Não tratado</td><td><strong>Starter não é vendido no canal direto</strong> — onboarding do Starter desenhado para o Integrador</td></tr>
+    <tr><td>Produto</td><td>"Kit Setor-Farol" como unidade</td><td><strong>Catálogo de 8 agentes para qualquer segmento</strong>; kits como recortes comerciais ("Kit Contabilidade" / agente "Bob" padronizados)</td></tr>
+    <tr><td>Integrações</td><td>WorkBridge como camada de tradução de texto</td><td>Tool use nativo + conectores padrão <strong>MCP</strong> reutilizáveis entre kits</td></tr>
+    <tr><td>COGS</td><td>Apenas cloud (R$ 60–120/mês)</td><td>COGS completo: LLM + WhatsApp por categoria + BSP + conectores ERP + cloud</td></tr>
+    <tr><td>Qualidade</td><td>Testes apenas no onboarding (gate único)</td><td>Suíte contínua de evals + versionamento de prompts por kit</td></tr>
+    <tr><td>Claims</td><td>"Eliminando alucinações"; Huxley US$ 4,30 sem contexto</td><td>Política de claims defensáveis (seção 10)</td></tr>
+  </table>
+</section>
+
+<section id="s2">
+  <h2><span class="n">2</span>Alinhamento com o plano comercial</h2><div class="rule"></div>
+  <h3>2.1 Pricing, canal e fronteira N1 → N2</h3>
+  <table><tr><th>Plano</th><th>Preço mensal</th><th>Franquia de tokens</th><th>Canal de venda</th></tr>
+    <tr><td>Start</td><td>R$ 750</td><td>2M típico / 4M teto</td><td>Somente parceiros (Indicador/Integrador). <strong>Proibido no canal direto</strong> — LTV/CAC abaixo do piso de 3x com o custo completo do canal direto</td></tr>
+    <tr><td>Business Basic</td><td>R$ 980</td><td>5M+ tokens</td><td>Direto e parceiros</td></tr>
+  </table>
+  <p>A regra "sem Starter direto" é consequência da unit economics com o stack completo de custos. Implicação operacional: o onboarding do Starter deve ser executável pelo parceiro <strong>Integrador</strong> (18–22% perpétuo, N1 obrigatório com certificação), com o time interno atuando apenas em N2.</p>
+  <p><strong>Fronteira N1 → N2:</strong> o risco previsível é o Integrador imaturo repassar chamados de N1 mal diagnosticados como "bug no agente". Mitigação: checklist de escalonamento rígido na documentação do parceiro, e o N2 da HupData só aceita tickets acompanhados do <strong>log de erros estruturado</strong> do painel de monitoramento (especificação na seção 3.5). Dependência de engenharia: o painel com export de log estruturado precisa existir antes da primeira conta via Integrador.</p>
+  <table><tr><th>Severidade</th><th>Definição</th><th>Prazo-alvo de atuação</th></tr>
+    <tr><td>P1 — Indisponibilidade total</td><td>Agente parado (ex.: erro de autenticação geral de API)</td><td>Até 4h úteis</td></tr>
+    <tr><td>P2 — Falha parcial</td><td>Uma ferramenta/conector MCP falhando; demais funções operantes</td><td>Até 12h úteis</td></tr>
+    <tr><td>P3 — Ajuste de comportamento</td><td>Incompreensão ou ajuste de prompt — entra na esteira regular de evals</td><td>Ciclo de sprint de evals</td></tr>
+  </table>
+  <div class="note"><em>Disciplina de claims (SLA):</em> o time de implantação/N2 é custo fixo (seção 7). Os prazos P1/P2 só entram no contrato do Integrador após validação contra a capacidade real do time nas primeiras contas do piloto — SLA prometido acima da capacidade é dívida reputacional com o canal.</div>
+
+  <h3>2.2 Programa de certificação do Integrador</h3>
+  <table><tr><th>Módulo</th><th>Conteúdo</th><th>Carga</th><th>Avaliação</th></tr>
+    <tr><td>1</td><td>Arquitetura do agente e MCP (visão geral)</td><td>2h assíncrono</td><td>Quiz de 10 perguntas</td></tr>
+    <tr><td>2</td><td>Leitura do log estruturado e do painel de monitoramento</td><td>2h prático em sandbox</td><td>Troubleshooting guiado simulado</td></tr>
+    <tr><td>3</td><td>Checklist de escalonamento N1→N2 com casos reais</td><td>1h case-based</td><td>Estudo de caso com acerto/erro</td></tr>
+    <tr><td>4</td><td>Atualizações contínuas (versões de prompt, novos conectores)</td><td>1h/mês webinar</td><td>Participação obrigatória para manter certificação</td></tr>
+  </table>
+  <ul>
+    <li><strong>Expiração:</strong> a certificação expira em 6 meses sem nenhum chamado N1 atendido no período.</li>
+    <li><strong>Custos:</strong> produção e aplicação do programa são da HupData; a dedicação de horas é do Integrador. <strong>O custo do programa entra no CAC do canal Integrador</strong> na planilha de unit economics.</li>
+  </ul>
+
+  <h3>2.3 Catálogo e kits por segmento</h3>
+  <p>O catálogo completo — Huxley (marketing), Diana (prospecção), Marcel (comercial), Vera (RH e pessoas), Bob (backoffice e gestão), Adam (finanças), Suporte N1 (atendimento) e Simon.AI (previsão de demanda) — atende <strong>qualquer segmento de PME</strong>. Os kits são recortes comerciais por vertical, porque o pitch focado converte melhor em cada ICP:</p>
+  <ul>
+    <li><strong>Kit Contabilidade (kit-farol do piloto):</strong> Bob + Adam + Vera — prazos e obrigações fiscais, recebíveis e cobrança humanizada, triagem de currículos e prazos trabalhistas.</li>
+    <li><strong>Kit Comercial:</strong> Huxley + Diana + Marcel — atração, priorização de leads e tração de deals até o fechamento.</li>
+    <li><strong>Composição livre:</strong> qualquer combinação do catálogo, definida no diagnóstico — nenhum agente é exclusivo de vertical.</li>
+  </ul>
+  <p>O pitch para contabilidades usa exclusivamente o Kit Contabilidade; o catálogo completo permanece disponível para expansão pós-prova de valor (seção 6, Etapa 5).</p>
+</section>
+
+<section id="s3">
+  <h2><span class="n">3</span>O cérebro da fábrica: Orquestrador Híbrido &amp; Governance Engine</h2><div class="rule"></div>
+
+  <h3>3.1 Camada de integrações: tool use nativo + MCP</h3>
+  <p>A antiga "WorkBridge API" é substituída por <strong>function calling nativo</strong> da plataforma Claude: cada sistema (Omie, Conta Azul, Pipedrive, WhatsApp, Teams, e-mail) é exposto como ferramenta com schema JSON estruturado — eliminando parsing de texto livre, principal fonte de bugs e de ações desautorizadas. Os conectores são empacotados no padrão <strong>MCP (Model Context Protocol)</strong>: construídos uma vez, reutilizados por todos os agentes de todos os kits.</p>
+  <p><strong>Especificação obrigatória de todo conector (anti-loop e degradação graciosa):</strong></p>
+  <ul>
+    <li><strong>Trava de tentativas (max retries = 2):</strong> após duas falhas consecutivas da API externa (timeout ou 5xx), o agente interrompe o ciclo e emite um <strong>evento estruturado de erro</strong> — nunca entra em loop consumindo tokens.</li>
+    <li><strong>Degradação graciosa:</strong> com a API indisponível, o agente informa no canal que a integração está temporariamente fora do ar — sem alucinar nem travar a conversa. A tarefa é enfileirada para reexecução automática.</li>
+  </ul>
+  <p><strong>Inventário de conectores certificados</strong> — artefato vivo; nenhum conector entra no catálogo sem passar pela suíte de evals com o inventário atualizado:</p>
+  <table><tr><th>Conector</th><th>Agentes que o usam</th><th>Crítico p/ onboarding?</th><th>Custo externo</th></tr>
+    <tr><td>Omie API</td><td>Bob, Adam</td><td>Sim (Kit Contabilidade)</td><td>A validar por conector</td></tr>
+    <tr><td>Conta Azul API</td><td>Bob, Adam</td><td>Sim (Kit Contabilidade)</td><td>A validar por conector</td></tr>
+    <tr><td>Pipedrive</td><td>Marcel, Diana</td><td>Sim (Kit Comercial)</td><td>A validar por conector</td></tr>
+    <tr><td>WhatsApp (via BSP)</td><td>Todos os agentes</td><td>Sim</td><td>Variável — repasse por categoria de mensagem (seção 5)</td></tr>
+    <tr><td>Teams / E-mail</td><td>Todos os agentes</td><td>Sim</td><td>Sem custo adicional conhecido — a validar</td></tr>
+  </table>
+  <div class="note"><em>Disciplina de claims (inventário):</em> as condições de custo de API de cada fornecedor dependem do plano do cliente e dos termos vigentes de cada ERP — nenhum valor é afirmado como isento até verificação formal. A coluna alimenta a planilha de COGS da seção 5.</div>
+
+  <h3>3.2 Roteamento híbrido de modelos — Claude e MiniMax</h3>
+  <p>O roteador é <strong>multi-provedor</strong>. Triagem, classificação e extração usam modelos rápidos e econômicos (família Claude Haiku e, quando habilitado, modelos MiniMax de baixo custo); redação complexa, análise e raciocínio multi-etapas usam modelos avançados (família Claude Sonnet). Nomes e preços vigentes de <strong>ambos os provedores</strong> são validados nas documentações oficiais a cada revisão da planilha de COGS — nunca a partir de snapshot antigo.</p>
+  <div class="note"><em>Pré-condição MiniMax (mesma régua da seção 3.6):</em> antes de qualquer dado de cliente trafegar para modelos MiniMax em produção, valem as duas exigências — (1) verificação contratual de que a API MiniMax não usa dados para treinamento, no mesmo padrão do compromisso da seção 3.4; (2) aprovação dos modelos MiniMax na suíte completa de evals (tom, guardrails, escopo). Até lá, o roteamento MiniMax fica restrito a homologação e a cargas sem dados de cliente.</div>
+  <figure>
+    <svg viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roteamento híbrido com Cost Guard">
+      <defs><marker id="ar4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <g font-family="Public Sans">
+      <rect x="240" y="30" width="200" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="340" y="57" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Tarefa recebida</text>
+      <line x1="340" y1="74" x2="340" y2="104" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar4)"/>
+      <rect x="230" y="110" width="220" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="340" y="137" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Complexidade da tarefa?</text>
+      <path d="M340 154 L340 172 L180 172 L180 190" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar4)"/>
+      <path d="M340 154 L340 172 L500 172 L500 190" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar4)"/>
+      <text x="172" y="168" text-anchor="end" font-size="11.5" fill="#5F5E5A">simples</text>
+      <text x="508" y="168" font-size="11.5" fill="#5F5E5A">complexa</text>
+      <rect x="60" y="196" width="240" height="60" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+      <text x="180" y="220" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Modelo leve</text>
+      <text x="180" y="240" text-anchor="middle" font-size="11.5" fill="#534AB7">Claude Haiku · MiniMax*</text>
+      <rect x="380" y="196" width="240" height="60" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+      <text x="500" y="220" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Modelo avançado</text>
+      <text x="500" y="240" text-anchor="middle" font-size="11.5" fill="#534AB7">Claude Sonnet</text>
+      <path d="M180 256 L180 274 L340 274 L340 292" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar4)"/>
+      <path d="M500 256 L500 274 L340 274" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
+      <rect x="215" y="298" width="250" height="56" rx="8" fill="#FAEEDA" stroke="#854F0B"/>
+      <text x="340" y="321" text-anchor="middle" font-size="13" font-weight="600" fill="#633806">Cost Guard</text>
+      <text x="340" y="341" text-anchor="middle" font-size="11.5" fill="#854F0B">dentro do orçamento da conta?</text>
+      <path d="M340 354 L340 372 L180 372 L180 390" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar4)"/>
+      <path d="M340 354 L340 372 L500 372 L500 390" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar4)"/>
+      <text x="172" y="368" text-anchor="end" font-size="11.5" fill="#5F5E5A">sim</text>
+      <text x="508" y="368" font-size="11.5" fill="#5F5E5A">não</text>
+      <rect x="60" y="396" width="240" height="52" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="180" y="426" text-anchor="middle" font-size="13" font-weight="600" fill="#085041">Execução e entrega</text>
+      <rect x="380" y="396" width="240" height="52" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+      <text x="500" y="417" text-anchor="middle" font-size="12.5" font-weight="600" fill="#712B13">Bloqueia jobs não críticos</text>
+      <text x="500" y="436" text-anchor="middle" font-size="11.5" fill="#993C1D">+ alerta com auto-upgrade (3.3)</text>
+      <text x="60" y="472" font-size="11" fill="#6B6F7B">* Roteamento MiniMax em produção condicionado às pré-condições desta seção e da 3.6.</text>
+      </g>
+    </svg>
+    <figcaption><b>Figura 4</b> — Roteamento híbrido multi-provedor com Cost Guard: tarefas simples em modelos leves, complexas em modelos avançados; toda execução passa pela verificação de orçamento da conta. Adaptado do Plano Comercial; o benchmark de COGS sobre receita foi removido por não estar validado no pricing por tokens.</figcaption>
+  </figure>
+
+  <h3>3.3 Engine Cost Guard (unidade: tokens)</h3>
+  <ul>
+    <li>Monitora o <strong>consumo de tokens</strong> de cada conta contra a franquia contratada (2M/4M no Start; 5M+ no Business Basic).</li>
+    <li>Alerta ao cliente e ao CSM aos <strong>80%</strong> da franquia; aos <strong>100%</strong>, bloqueia tarefas não críticas até o ciclo seguinte ou upgrade. <strong>A mensagem de 80% inclui link de auto-upgrade em 1 clique</strong> — migração de plano ou pacote adicional de tokens — transformando atrito em conversão (gatilho de NRR, seção 6, Etapa 5).</li>
+    <li><strong>Bulk processing contado por item processado</strong>, não por chamada de API — regra anti-gaming do plano comercial.</li>
+    <li><strong>Pré-estimativa obrigatória em lotes:</strong> antes de submeter um lote (ex.: planilha com milhares de linhas de extrato), a interface estima tokens/itens e exige confirmação acima do percentual definido do saldo mensal — sempre oferecendo alternativas: dividir o lote entre ciclos ou upgrade.</li>
+    <li>Governa dois orçamentos distintos por conta: <strong>tempo real</strong> e <strong>batch</strong> (seção 4.2).</li>
+  </ul>
+
+  <h3>3.4 Trilhos de segurança e LGPD</h3>
+  <ul>
+    <li>Dados do cliente <strong>não treinam</strong> modelos de IA — nem da HupData, nem de terceiros; o fornecedor de IA não usa dados de API para treinamento, e isso vai no contrato.</li>
+    <li>Acesso restrito à equipe técnica que implanta e dá suporte à conta, apenas quando o atendimento exige.</li>
+    <li>No encerramento: exportação de dados e histórico + expurgo em até 30 dias com confirmação por escrito.</li>
+  </ul>
+  <div class="note"><em>O que deliberadamente NÃO prometemos ainda:</em> mascaramento de PII e isolamento de ambiente por cliente em produção. O "sandbox" da Etapa 3 é ambiente de homologação durante o onboarding.</div>
+
+  <h3>3.5 Rastreabilidade e auditoria de decisões</h3>
+  <ul>
+    <li><strong>Log estruturado obrigatório por interação:</strong> (a) prompt exato enviado ao modelo, com cache resolvido; (b) ferramentas MCP chamadas e argumentos; (c) saída do modelo; (d) timestamp. É o mesmo log exigido no escalonamento N1→N2.</li>
+    <li><strong>Retenção:</strong> 90 dias para produção — escolha de política da HupData para sustentar o princípio de prestação de contas (accountability) da LGPD, que não fixa prazo específico. Homologação: descarte após 30 dias.</li>
+    <li><strong>Encerramento:</strong> o log contém o prompt resolvido (com dados do cliente) — segue as regras da seção 3.4: exportação e expurgo em até 30 dias.</li>
+  </ul>
+
+  <h3>3.6 Política de contingência do provedor de IA</h3>
+  <ul>
+    <li><strong>Degrau 1 — retry com backoff:</strong> repetição controlada com espera progressiva (limite alinhado à trava da 3.1).</li>
+    <li><strong>Degrau 2 — degradação para fila:</strong> tarefas não críticas migram para batch e são reexecutadas na normalização; tarefas síncronas recebem mensagem honesta de contingência.</li>
+    <li><strong>Degrau 3 (roadmap, não vigente) — fallback multi-provedor:</strong> provedor secundário designado: <strong>MiniMax</strong>. Duas pré-condições obrigatórias antes de qualquer ativação: (1) cobertura contratual verificada com o provedor secundário para o mesmo compromisso de não-treinamento da 3.4; (2) aprovação dos modelos secundários na suíte completa de evals. Até lá, não é prometido em nenhum material.</li>
+  </ul>
+</section>
+
+<section id="s4">
+  <h2><span class="n">4</span>Arquitetura Claude-native: as três alavancas de margem</h2><div class="rule"></div>
+  <h3>4.1 Prompt caching</h3>
+  <p>Cada agente opera com um system prompt grande e fixo por cliente. Com caching, esse bloco repetido é cobrado a fração do preço nas chamadas subsequentes — a maior alavanca individual de redução de COGS de LLM para agentes que rodam dezenas de vezes ao dia.</p>
+  <ul>
+    <li><strong>Ordenação estrita:</strong> [Instruções do agente → Base certificada → Contexto da conversa → Entrada atual]. Se qualquer bloco antes do ponto de cache variar, o cache quebra silenciosamente e o custo dispara. Validação incluída na suíte de evals.</li>
+    <li><strong>Métrica de saúde:</strong> taxa de cache hit por agente, monitorada pelo Cost Guard — alarme precoce antes da fatura.</li>
+    <li><strong>Janela de contexto:</strong> conversas longas usam <strong>janela deslizante</strong> (últimos N turnos; referência inicial 6) com sumarização periódica via modelo leve em batch. O resumo entra após o prefixo cacheado — preservando a ordenação, nunca a quebrando.</li>
+  </ul>
+  <h3>4.2 Classificação real-time vs. batch</h3>
+  <table><tr><th>Modo</th><th>Características</th><th>Exemplos no catálogo</th></tr>
+    <tr><td>Tempo real</td><td>Resposta síncrona, latência baixa, preço padrão</td><td>Suporte N1 no WhatsApp; dúvidas de RH à Vera; interações do Marcel</td></tr>
+    <tr><td>Batch (agendado)</td><td>Ciclos programados, desconto de batch, sem exigência de latência</td><td>Lista diária do Bob; ranqueamento de currículos da Vera; conteúdo do Huxley; recebíveis do Adam; previsões do Simon.AI</td></tr>
+  </table>
+  <h3>4.3 Saídas estruturadas</h3>
+  <p>Respostas destinadas a sistemas usam JSON com schema validado — nunca texto livre parseado. Respostas a humanos permanecem em linguagem natural com o tom configurado.</p>
+</section>
+
+<section id="s5">
+  <h2><span class="n">5</span>COGS completo por cliente</h2><div class="rule"></div>
+  <p>O COGS de referência da V2 (apenas cloud) subestimava o custo real — exatamente os itens omitidos derrubaram o LTV/CAC do Starter no canal direto. A planilha de margem por conta consolida obrigatoriamente:</p>
+  <table><tr><th>Componente</th><th>Direcionador de custo</th><th>Observações</th></tr>
+    <tr><td>LLM (API Claude)</td><td>Tokens por modelo, com caching e batch aplicados</td><td>Preços validados na documentação oficial a cada revisão</td></tr>
+    <tr><td>WhatsApp API</td><td>Mensagens <strong>por categoria</strong> (utility vs. marketing — diferencial de ~9x após a mudança de pricing da Meta em julho/2025)</td><td>Modelar mix de categorias por agente</td></tr>
+    <tr><td>BSP (plataforma WhatsApp)</td><td>Fee da plataforma provedora</td><td>Fixo + variável conforme contrato do BSP</td></tr>
+    <tr><td>Conectores ERP de terceiros</td><td>Licença/fee por integração (quando aplicável)</td><td>Conforme inventário da seção 3.1 — valores a validar</td></tr>
+    <tr><td>Cloud / infraestrutura</td><td>R$ 60–120/mês por conta (orquestração, filas, storage)</td><td>Único componente que a V2 contabilizava</td></tr>
+  </table>
+  <figure>
+    <svg viewBox="0 0 680 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Árvore de decisão do custo de mensagens WhatsApp">
+      <defs><marker id="ar5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <g font-family="Public Sans">
+      <rect x="215" y="30" width="250" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="340" y="57" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Mensagem enviada pelo agente</text>
+      <line x1="340" y1="74" x2="340" y2="104" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar5)"/>
+      <rect x="185" y="110" width="310" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="340" y="133" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Cliente iniciou a conversa</text>
+      <text x="340" y="153" text-anchor="middle" font-size="11.5" fill="#5F5E5A">nas últimas 24 horas?</text>
+      <path d="M340 166 L340 184 L170 184 L170 202" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar5)"/>
+      <path d="M340 166 L340 184 L510 184 L510 202" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar5)"/>
+      <text x="162" y="180" text-anchor="end" font-size="11.5" fill="#5F5E5A">sim</text>
+      <text x="518" y="180" font-size="11.5" fill="#5F5E5A">não</text>
+      <rect x="50" y="208" width="240" height="60" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="170" y="232" text-anchor="middle" font-size="13" font-weight="600" fill="#085041">Janela de serviço</text>
+      <text x="170" y="252" text-anchor="middle" font-size="11.5" fill="#0F6E56">custo zero</text>
+      <rect x="390" y="208" width="240" height="60" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="510" y="232" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Categoria do template</text>
+      <text x="510" y="252" text-anchor="middle" font-size="11.5" fill="#5F5E5A">definida na criação da mensagem</text>
+      <path d="M510 268 L510 286 L340 286 L340 304" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar5)"/>
+      <path d="M510 268 L510 286 L595 286 L595 304" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar5)"/>
+      <text x="332" y="300" text-anchor="end" font-size="11.5" fill="#5F5E5A">utility — cobrança, prazo, aviso</text>
+      <rect x="220" y="310" width="240" height="72" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="340" y="336" text-anchor="middle" font-size="13" font-weight="600" fill="#085041">~R$ 0,05 por mensagem</text>
+      <text x="340" y="356" text-anchor="middle" font-size="11.5" fill="#0F6E56">dentro do COGS do plano</text>
+      <rect x="475" y="310" width="185" height="90" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+      <text x="567" y="333" text-anchor="middle" font-size="12.5" font-weight="600" fill="#712B13">marketing</text>
+      <text x="567" y="352" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">~R$ 0,42/msg (9x)</text>
+      <text x="567" y="372" text-anchor="middle" font-size="11.5" fill="#993C1D">repasse ao cliente</text>
+      <text x="567" y="388" text-anchor="middle" font-size="11.5" fill="#993C1D">ou add-on de tokens</text>
+      <text x="50" y="428" font-size="11" fill="#6B6F7B">Valores modelados após a mudança de pricing da Meta (jul/2025) — a validar na cotação vigente do BSP.</text>
+      </g>
+    </svg>
+    <figcaption><b>Figura 5</b> — A linha que pode destruir a margem: custo de mensagem WhatsApp por origem e categoria. A janela de 24h é gratuita; template utility é barato e absorvido; template marketing custa ~9x e é repassado — o mix de categorias por agente é insumo obrigatório da planilha de COGS.</figcaption>
+  </figure>
+</section>
+
+<section id="s6">
+  <h2><span class="n">6</span>A linha de produção em 5 etapas</h2><div class="rule"></div>
+  <figure>
+    <svg viewBox="0 0 680 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Linha de produção em cinco etapas">
+      <defs><marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <g font-family="Public Sans">
+      <rect x="150" y="40" width="380" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+      <text x="340" y="63" text-anchor="middle" font-size="14" font-weight="600" fill="#3C3489">1 · Ingestão de dados</text>
+      <text x="340" y="83" text-anchor="middle" font-size="12" fill="#534AB7">Produtos de dados certificados</text>
+      <line x1="340" y1="96" x2="340" y2="130" stroke="#534AB7" stroke-width="1.5" marker-end="url(#ar2)"/>
+      <rect x="150" y="140" width="380" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+      <text x="340" y="163" text-anchor="middle" font-size="14" font-weight="600" fill="#3C3489">2 · Montagem via kits</text>
+      <text x="340" y="183" text-anchor="middle" font-size="12" fill="#534AB7">recortes do catálogo por segmento</text>
+      <line x1="340" y1="196" x2="340" y2="230" stroke="#534AB7" stroke-width="1.5" marker-end="url(#ar2)"/>
+      <rect x="150" y="240" width="380" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+      <text x="340" y="263" text-anchor="middle" font-size="14" font-weight="600" fill="#3C3489">3 · Evals contínuos e guardrails</text>
+      <text x="340" y="283" text-anchor="middle" font-size="12" fill="#534AB7">Prompts versionados por kit</text>
+      <line x1="340" y1="296" x2="340" y2="330" stroke="#534AB7" stroke-width="1.5" marker-end="url(#ar2)"/>
+      <rect x="150" y="340" width="380" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+      <text x="340" y="363" text-anchor="middle" font-size="14" font-weight="600" fill="#3C3489">4 · Go-live e onboarding guiado</text>
+      <text x="340" y="383" text-anchor="middle" font-size="12" fill="#534AB7">14 dias · ROI no dia 30</text>
+      <line x1="340" y1="396" x2="340" y2="430" stroke="#534AB7" stroke-width="1.5" marker-end="url(#ar2)"/>
+      <rect x="150" y="440" width="380" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="340" y="463" text-anchor="middle" font-size="14" font-weight="600" fill="#085041">5 · Expansão sustentável</text>
+      <text x="340" y="483" text-anchor="middle" font-size="12" fill="#0F6E56">Novos agentes · NRR maior que 100%</text>
+      </g>
+    </svg>
+    <figcaption><b>Figura 6</b> — Linha de produção: etapas 1–4 formam a esteira; a etapa 5 é a expansão comercial que sustenta o NRR &gt; 100%.</figcaption>
+  </figure>
+
+  <h3>Etapa 1 — Ingestão de dados &amp; Produtos de Dados Certificados</h3>
+  <p>Os agentes operam estritamente sobre <strong>Produtos de Dados Certificados</strong> — relatórios consolidados, planilhas validadas e bases de conhecimento oficiais. Isso <strong>reduz drasticamente</strong> a alucinação; a mitigação completa vem do conjunto: dados curados + guardrails + citação de fonte + escalonamento para humano em baixa confiança (seção 10).</p>
+  <h4 style="font:600 15.5px/1.3 'Archivo',sans-serif;color:#4A5578;margin:22px 0 6px">O desafio real da PME: dados desestruturados — e o papel do KNIME</h4>
+  <p>Boa parte das PMEs não tem dados prontos para agente nenhum: planilhas soltas, extratos em PDF, sistemas sem exportação padronizada. Construir o repositório que alimenta os Produtos de Dados Certificados é, com frequência, <strong>o trabalho mais difícil da implantação</strong> — e o documento assume isso abertamente em vez de escondê-lo.</p>
+  <ul>
+    <li><strong>Ferramenta de ETL: KNIME Analytics Platform</strong> (open source, <a href="https://www.knime.com/knime-analytics-platform">knime.com/knime-analytics-platform</a>) — a HupData é <strong>KNIME Elite Partner</strong> (prêmio de Melhor Parceiro das Américas), com anos de know-how construindo pipelines de dados nessa plataforma. Os workflows de ingestão, limpeza e padronização por tipo de fonte (ERP, extratos, planilhas) viram <strong>ativos reutilizáveis da Factory</strong>, como os conectores MCP.</li>
+    <li><strong>Arquitetura do repositório:</strong> versão enxuta da arquitetura medalhão já usada nos projetos HupData — camadas Raw (dado como chega), Treated (limpo e padronizado) e Business (produto de dados certificado que o agente consome) — com LGPD observada em cada camada.</li>
+    <li><strong>Gate comercial:</strong> a avaliação de prontidão de dados acontece no diagnóstico, antes do contrato — cliente com dados críticos inacessíveis entra primeiro num escopo de estruturação, não direto no agente. Evita implantação travada no bucket (b).</li>
+    <li><strong>Medição:</strong> o esforço de estruturação é apontado dentro do bucket (b) do protocolo (validação da Base Certificada) — se ele estourar recorrentemente as horas, é sinal de que o workflow KNIME daquele tipo de fonte precisa virar template.</li>
+  </ul>
+  <div class="note"><em>Licenciamento a validar:</em> a KNIME Analytics Platform é gratuita e open source para construir e executar workflows manualmente; execução automatizada/agendada em produção pode exigir o KNIME Business Hub, que é licenciado. Antes de assumir custo zero de ETL no COGS, validar o modelo de execução (desktop assistido no onboarding vs. automação contínua) e o licenciamento correspondente.</div>
+
+  <h3>Etapa 2 — Montagem via kits padronizados</h3>
+  <p>A montagem parte de kits pré-empacotados — recortes do catálogo por segmento (seção 2.3) — em vez de agentes construídos do zero. Cada kit carrega seus conectores MCP, prompts versionados e suíte de evals.</p>
+  <h3>Etapa 3 — Evals contínuos, guardrails &amp; versionamento</h3>
+  <p>Suíte automatizada rodando: (a) no onboarding (dias 6–10) em homologação; (b) a cada mudança de prompt ou base; (c) periodicamente em produção. Cobertura mínima: aderência ao escopo, consistência de tom, ausência de ações desautorizadas e de vazamento, regressão pós-atualização — com <strong>versionamento de prompts por kit</strong> e rollback.</p>
+  <h3>Etapa 4 — Go-live &amp; onboarding guiado (14 dias)</h3>
+  <p>Canais definitivos + treinamento de 30 min; Dia 30 com relatório de ROI em reais. Meta de <strong>&lt; 28h/implantação</strong> — meta de engenharia até validação. <strong>Protocolo de medição:</strong> apontamento obrigatório nas 5 primeiras contas do piloto, em 4 buckets: (a) conexão ERP/MCP; (b) validação da Base Certificada; (c) homologação e evals; (d) go-live e treinamento. O bucket mais caro é o primeiro candidato a automação.</p>
+  <figure>
+    <svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cronograma da jornada de implantação em 14 dias">
+      <g font-family="Public Sans" font-size="11.5">
+      <text x="280" y="34" font-family="Archivo" font-size="13" font-weight="600" fill="#444441">Dias</text>
+      <g fill="#6B6F7B">
+        <text x="292" y="52" text-anchor="middle">1</text><text x="317" y="52" text-anchor="middle">2</text><text x="342" y="52" text-anchor="middle">3</text><text x="367" y="52" text-anchor="middle">4</text><text x="392" y="52" text-anchor="middle">5</text><text x="417" y="52" text-anchor="middle">6</text><text x="442" y="52" text-anchor="middle">7</text><text x="467" y="52" text-anchor="middle">8</text><text x="492" y="52" text-anchor="middle">9</text><text x="517" y="52" text-anchor="middle">10</text><text x="542" y="52" text-anchor="middle">11</text><text x="567" y="52" text-anchor="middle">12</text><text x="592" y="52" text-anchor="middle">13</text><text x="617" y="52" text-anchor="middle">14</text>
+      </g>
+      <g stroke="#E2E3E8"><line x1="280" y1="60" x2="280" y2="356"/><line x1="405" y1="60" x2="405" y2="356"/><line x1="530" y1="60" x2="530" y2="356"/><line x1="630" y1="60" x2="630" y2="356"/></g>
+      <g fill="#3C3F49">
+        <text x="272" y="80" text-anchor="end">Mapeamento de escopo</text>
+        <text x="272" y="110" text-anchor="end">Extração da base de conhecimento</text>
+        <text x="272" y="140" text-anchor="end">Config. de APIs e Cost Guard</text>
+        <text x="272" y="170" text-anchor="end">Testes em sandbox</text>
+        <text x="272" y="200" text-anchor="end">Validação de guardrails</text>
+        <text x="272" y="230" text-anchor="end">Ajuste de tom de voz</text>
+        <text x="272" y="260" text-anchor="end">Homologação final</text>
+        <text x="272" y="290" text-anchor="end">Treinamento do time</text>
+        <text x="272" y="320" text-anchor="end">Go-live assistido</text>
+        <text x="272" y="350" text-anchor="end">Relatório de ROI</text>
+      </g>
+      <rect x="280" y="68" width="75" height="16" rx="4" fill="#AFA9EC"/>
+      <rect x="305" y="98" width="100" height="16" rx="4" fill="#5DCAA5"/>
+      <rect x="330" y="128" width="75" height="16" rx="4" fill="#AFA9EC"/>
+      <rect x="405" y="158" width="75" height="16" rx="4" fill="#FAC775"/>
+      <rect x="430" y="188" width="75" height="16" rx="4" fill="#FAC775"/>
+      <rect x="455" y="218" width="75" height="16" rx="4" fill="#FAC775"/>
+      <rect x="530" y="248" width="50" height="16" rx="4" fill="#F0997B"/>
+      <rect x="555" y="278" width="50" height="16" rx="4" fill="#F0997B"/>
+      <rect x="580" y="308" width="50" height="16" rx="4" fill="#F0997B"/>
+      <rect x="634" y="338" width="34" height="16" rx="4" fill="#1D9E75"/>
+      <text x="651" y="330" text-anchor="middle" fill="#0F6E56" font-size="10.5">Dia 30</text>
+      <g font-size="11">
+        <rect x="60" y="380" width="12" height="12" rx="3" fill="#AFA9EC"/><text x="78" y="390" fill="#3C3F49">bucket a · conexão ERP/MCP</text>
+        <rect x="248" y="380" width="12" height="12" rx="3" fill="#5DCAA5"/><text x="266" y="390" fill="#3C3F49">bucket b · base certificada</text>
+        <rect x="425" y="380" width="12" height="12" rx="3" fill="#FAC775"/><text x="443" y="390" fill="#3C3F49">bucket c · homologação</text>
+        <rect x="60" y="400" width="12" height="12" rx="3" fill="#F0997B"/><text x="78" y="410" fill="#3C3F49">bucket d · go-live e treinamento</text>
+        <rect x="300" y="400" width="12" height="12" rx="3" fill="#1D9E75"/><text x="318" y="410" fill="#3C3F49">CS · relatório de ROI (Dia 30)</text>
+      </g>
+      </g>
+    </svg>
+    <figcaption><b>Figura 7</b> — Jornada de implantação em 14 dias, com as atividades coloridas pelos 4 buckets do protocolo de medição. O apontamento de horas por bucket nas 5 primeiras contas do piloto valida a meta de &lt; 28h.</figcaption>
+  </figure>
+  <h3>Etapa 5 — Expansão sustentável (NRR &gt; 100%)</h3>
+  <p>Do valor comprovado pelo kit inicial, o cliente expande adicionando agentes do catálogo — cruzando kits livremente. No canal parceiro, a expansão preserva proteção de conta e revenue share.</p>
+</section>
+
+<section id="s7">
+  <h2><span class="n">7</span>Estrutura enxuta de recursos humanos</h2><div class="rule"></div>
+  <table><tr><th>Papel</th><th>Atribuições principais</th><th>Modelo operacional</th></tr>
+    <tr><td>Engenheiro Full-Stack de IA</td><td>Conectores MCP, ajuste de prompts, guardrails, suíte de evals</td><td>Desenvolvimento, testes e suporte N2</td></tr>
+    <tr><td>Especialista de Implantação</td><td>Jornada de 14 dias, mapeamento de requisitos, treinamento</td><td>Meta &lt; 28h/implantação; capacidade da fábrica derivada deste número. No Starter, executa apenas N2 — onboarding é do Integrador</td></tr>
+    <tr><td>Customer Success (CSM)</td><td>Reunião de ROI do Dia 30, saúde da conta, expansão de catálogo</td><td>Gestão por coortes com foco em NRR &gt; 100%</td></tr>
+  </table>
+  <p>O time de implantação é <strong>custo fixo</strong> — decisão que inverteu a relação de capital entre os cenários de crescimento e tornou o crescimento agressivo com padronização o único caminho defensável.</p>
+  <figure>
+    <svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decisão de capacidade de implantação">
+      <defs><marker id="ar6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <g font-family="Public Sans">
+      <rect x="190" y="30" width="300" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="340" y="53" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Meta do plano: ~110 novos clientes em 12 meses</text>
+      <text x="340" y="73" text-anchor="middle" font-size="11.5" fill="#5F5E5A">baseline: 3.580 horas de implantação no ano</text>
+      <line x1="340" y1="86" x2="340" y2="116" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar6)"/>
+      <rect x="205" y="122" width="270" height="56" rx="8" fill="#FAEEDA" stroke="#854F0B"/>
+      <text x="340" y="145" text-anchor="middle" font-size="13" font-weight="600" fill="#633806">Padronização entregue até o mês 6?</text>
+      <text x="340" y="165" text-anchor="middle" font-size="11.5" fill="#854F0B">kits, conectores e evals reduzindo horas/conta</text>
+      <path d="M340 178 L340 198 L180 198 L180 218" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar6)"/>
+      <path d="M340 178 L340 198 L500 198 L500 218" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar6)"/>
+      <text x="172" y="194" text-anchor="end" font-size="11.5" fill="#5F5E5A">sim — redução de ~40%</text>
+      <text x="508" y="194" font-size="11.5" fill="#5F5E5A">não</text>
+      <rect x="60" y="224" width="240" height="96" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="180" y="250" text-anchor="middle" font-size="13" font-weight="600" fill="#085041">~2.460 horas no ano</text>
+      <text x="180" y="272" text-anchor="middle" font-size="11.5" fill="#0F6E56">pico de ~312h/mês</text>
+      <text x="180" y="292" text-anchor="middle" font-size="12.5" font-weight="600" fill="#085041">2 pessoas dedicadas</text>
+      <text x="180" y="310" text-anchor="middle" font-size="11.5" fill="#0F6E56">meta sustentável</text>
+      <rect x="380" y="224" width="240" height="96" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+      <text x="500" y="250" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">3.580 horas no ano</text>
+      <text x="500" y="272" text-anchor="middle" font-size="11.5" fill="#993C1D">pico de ~520h/mês</text>
+      <text x="500" y="292" text-anchor="middle" font-size="12.5" font-weight="600" fill="#712B13">3,3 pessoas dedicadas</text>
+      <text x="500" y="310" text-anchor="middle" font-size="11.5" fill="#993C1D">ou o prazo de 14 dias quebra</text>
+      <text x="60" y="352" font-size="11" fill="#6B6F7B">Números derivados das premissas do Plano Comercial (meta de 110 clientes/ano) — recalcular quando o apontamento</text>
+      <text x="60" y="368" font-size="11" fill="#6B6F7B">real dos 4 buckets (seção 6, Etapa 4) substituir o baseline estimado.</text>
+      </g>
+    </svg>
+    <figcaption><b>Figura 8</b> — A restrição real do plano é capacidade de implantação, não engenharia: a padronização até o mês 6 é o que mantém a meta com o time fixo de 2 pessoas. Reforça a mecânica 2 do modelo de escala e o papel do canal Integrador.</figcaption>
+  </figure>
+</section>
+
+<section id="s8">
+  <h2><span class="n">8</span>Infraestrutura mínima e elástica</h2><div class="rule"></div>
+  <p>A fábrica quase não tem infraestrutura própria: os componentes pesados (modelo de IA, entrega no WhatsApp, ERPs) rodam na infra de terceiros, pagos por uso. A HupData opera uma camada fina de orquestração — 100% serviços gerenciados e elásticos, que escalam a zero quando não há uso.</p>
+  <figure>
+    <svg viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Infraestrutura mínima e elástica">
+      <defs><marker id="ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <g font-family="Public Sans">
+      <rect x="140" y="40" width="400" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="340" y="62" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">Canais e gatilhos</text>
+      <text x="340" y="82" text-anchor="middle" font-size="11.5" fill="#5F5E5A">Webhooks: WhatsApp, Teams, e-mail · relógio (batch)</text>
+      <line x1="340" y1="96" x2="340" y2="130" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar3)"/>
+      <rect x="40" y="140" width="600" height="142" rx="12" fill="none" stroke="#888780" stroke-dasharray="4 4"/>
+      <text x="60" y="166" font-family="Archivo" font-size="14" font-weight="600" fill="#444441">Núcleo elástico — serverless, escala a zero</text>
+      <rect x="60" y="184" width="176" height="72" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+      <text x="148" y="214" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Fila de eventos</text>
+      <text x="148" y="234" text-anchor="middle" font-size="11.5" fill="#534AB7">gerenciada</text>
+      <rect x="252" y="184" width="176" height="72" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+      <text x="340" y="214" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Runtime dos agentes</text>
+      <text x="340" y="234" text-anchor="middle" font-size="11.5" fill="#534AB7">containers sob demanda</text>
+      <rect x="444" y="184" width="176" height="72" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+      <text x="532" y="214" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">Agendador</text>
+      <text x="532" y="234" text-anchor="middle" font-size="11.5" fill="#534AB7">rotinas batch</text>
+      <line x1="340" y1="282" x2="340" y2="316" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar3)"/>
+      <rect x="40" y="326" width="600" height="142" rx="12" fill="none" stroke="#888780" stroke-dasharray="4 4"/>
+      <text x="60" y="352" font-family="Archivo" font-size="14" font-weight="600" fill="#444441">Camada de dados — serviços gerenciados</text>
+      <rect x="60" y="370" width="176" height="72" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="148" y="400" text-anchor="middle" font-size="13" font-weight="600" fill="#085041">Postgres</text>
+      <text x="148" y="420" text-anchor="middle" font-size="11.5" fill="#0F6E56">multi-tenant + pgvector</text>
+      <rect x="252" y="370" width="176" height="72" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="340" y="400" text-anchor="middle" font-size="13" font-weight="600" fill="#085041">Object storage</text>
+      <text x="340" y="420" text-anchor="middle" font-size="11.5" fill="#0F6E56">base certificada</text>
+      <rect x="444" y="370" width="176" height="72" rx="8" fill="#E1F5EE" stroke="#0F6E56"/>
+      <text x="532" y="400" text-anchor="middle" font-size="13" font-weight="600" fill="#085041">Secrets</text>
+      <text x="532" y="420" text-anchor="middle" font-size="11.5" fill="#0F6E56">credenciais por tenant</text>
+      <line x1="340" y1="468" x2="340" y2="500" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar3)"/>
+      <rect x="140" y="510" width="400" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A"/>
+      <text x="340" y="536" text-anchor="middle" font-size="13" font-weight="600" fill="#444441">APIs externas: Claude · MiniMax · BSP WhatsApp · ERPs</text>
+      </g>
+    </svg>
+    <figcaption><b>Figura 9</b> — Infraestrutura da fábrica: canais entram por webhooks, núcleo serverless processa, dados em serviços gerenciados, inteligência e entrega via APIs externas.</figcaption>
+  </figure>
+
+  <h3>8.1 Componentes e justificativas</h3>
+  <ul>
+    <li><strong>Fila de eventos gerenciada:</strong> coração do desenho por webhooks — cada mensagem, gatilho ou callback vira evento. Filas separadas tempo real/batch conforme cresce.</li>
+    <li><strong>Runtime serverless dos agentes:</strong> containers sob demanda (Cloud Run, Fargate ou equivalente) que escalam a zero — sem clientes ativos, custo de computação próximo de zero.</li>
+    <li><strong>Agendador gerenciado:</strong> dispara as rotinas batch — lista diária do Bob, recebíveis do Adam, previsões do Simon.AI.</li>
+    <li><strong>Postgres multi-tenant:</strong> tenant_id em cada linha com row-level security (conta A jamais lê a conta B). Guarda configuração, contadores do Cost Guard e logs da 3.5. Busca semântica com <strong>pgvector no mesmo Postgres</strong> — banco vetorial dedicado só com centenas de contas.</li>
+    <li><strong>Object storage:</strong> documentos brutos da Base Certificada.</li>
+    <li><strong>Gerenciador de secrets:</strong> item mais crítico e mais barato — credenciais de ERP por tenant nunca em código ou banco comum. Vazamento de credencial é o risco existencial da fábrica.</li>
+    <li><strong>Painel de monitoramento:</strong> começa como Metabase/Grafana lendo o Postgres — suficiente para o export de log do N1→N2.</li>
+    <li><strong>Suíte de evals:</strong> roda em CI (GitHub Actions ou equivalente), custo próximo de zero.</li>
+  </ul>
+  <h3>8.2 O que deliberadamente NÃO entra no início</h3>
+  <p>Metade da economia está no que não se contrata: <strong>sem GPU</strong> (inteligência é API de terceiros — Claude e MiniMax — com caching e batch); <strong>sem Kubernetes</strong> (complexidade que exigiria o time enterprise eliminado na V2); <strong>sem MQTT</strong> (enterrado na V1); <strong>sem multi-região/HA sofisticada</strong> (a contingência em degraus da 3.6 cobre indisponibilidade com fila e mensagem honesta); <strong>sem banco vetorial dedicado</strong> (pgvector resolve no volume atual).</p>
+  <h3>8.3 Fases de evolução</h3>
+  <table><tr><th>Fase</th><th>Escala</th><th>Infraestrutura</th><th>Custo fixo de plataforma</th></tr>
+    <tr><td>Fase 0 — Piloto</td><td>5–10 contas</td><td>Postgres pequeno, storage mínimo, containers quase ociosos, painel Metabase/Grafana, evals em CI</td><td>Ordem de poucas centenas de R$/mês (a cotar contra tabelas vigentes)</td></tr>
+    <tr><td>Fase 1</td><td>~50 contas</td><td>Tier maior de Postgres, réplica de leitura, filas separadas — configuração, não arquitetura</td><td>Cresce gradualmente com uso</td></tr>
+    <tr><td>Fase 2</td><td>150+ contas</td><td>Avaliar: banco vetorial dedicado, observabilidade profissional, redundância</td><td>Decisões estruturais entram em pauta</td></tr>
+  </table>
+  <div class="note"><em>Consequência operacional:</em> um engenheiro full-stack opera esta infraestrutura sozinho — não há servidor para administrar, só serviços gerenciados para configurar — coerente com a estrutura enxuta da seção 7. Valores exatos dependem de provedor e região; a planilha é cotada contra tabelas vigentes no fechamento.</div>
+</section>
+
+<section id="s9">
+  <h2><span class="n">9</span>Exemplo prático: Huxley na linha de produção</h2><div class="rule"></div>
+  <p>O Huxley opera o marketing de atração da própria HupData e é comercializado no catálogo — junto com Diana e Marcel, compõe o funil comercial interno que serve de prova ("vendemos o que usamos").</p>
+  <ul>
+    <li><strong>Fundação &amp; ingestão:</strong> identifica palavras-chave e intenções de busca a partir das dores reais do ICP B2B.</li>
+    <li><strong>Montagem &amp; roteamento:</strong> modelos leves filtram e ranqueiam pautas; modelos avançados redigem artigos e posts multicanal.</li>
+    <li><strong>Custo:</strong> ~US$ 4,30/mês de API — <strong>custo observado em operação interna, sem canal WhatsApp e sem conectores ERP de terceiros</strong>. Não extrapolar para clientes sem modelar o stack completo.</li>
+    <li><strong>Resultado operacional:</strong> alimenta o topo do funil continuamente, sem agência externa nem produção manual diária.</li>
+  </ul>
+</section>
+
+<section id="s10">
+  <h2><span class="n">10</span>Política de claims defensáveis</h2><div class="rule"></div>
+  <ul>
+    <li>Nenhum claim absoluto sobre comportamento de IA ("elimina alucinações", "zero erro"). Descrever o <strong>mecanismo</strong> de mitigação, não a ausência do problema.</li>
+    <li>Números internos (ex.: US$ 4,30/mês do Huxley) sempre rotulados com contexto e limites de extrapolação.</li>
+    <li>Metas de engenharia (ex.: &lt; 28h de onboarding) rotuladas como metas até validação em campo, com registro da decomposição real.</li>
+    <li>Âncora de performance verificada do Simon.AI: <strong>case ArcelorMittal, erro de previsão &lt; 10% ao longo de 12 meses</strong> — único benchmark citável.</li>
+    <li>Capacidades não existentes (PII masking, isolamento de ambiente em produção) permanecem no bloco "o que deliberadamente não prometemos ainda".</li>
+  </ul>
+</section>
+
+<section id="s11">
+  <h2>Síntese — os três tempos da Factory</h2><div class="rule"></div>
+  <p>Tudo que este documento detalha cabe em três tempos: <strong>construção</strong> (uma vez), <strong>instalação</strong> (por cliente) e <strong>operação</strong> (multi-tenant).</p>
+  <figure>
+    <svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Os três tempos da Factory: construção, instalação e operação">
+      <defs><marker id="ar9" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <g font-family="Public Sans">
+      <rect x="40" y="40" width="180" height="200" rx="10" fill="#1B2340"/>
+      <text x="130" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">CONSTRUÍDO UMA VEZ</text>
+      <text x="130" y="102" text-anchor="middle" font-size="11.5" fill="#C3C9DC">Catálogo de 8 agentes</text>
+      <text x="130" y="124" text-anchor="middle" font-size="11.5" fill="#C3C9DC">Conectores ERP · CRM ·</text>
+      <text x="130" y="142" text-anchor="middle" font-size="11.5" fill="#C3C9DC">WhatsApp</text>
+      <text x="130" y="164" text-anchor="middle" font-size="11.5" fill="#C3C9DC">Testes automatizados</text>
+      <text x="130" y="186" text-anchor="middle" font-size="11.5" fill="#C3C9DC">Cost Guard por conta</text>
+      <text x="130" y="270" text-anchor="middle" font-size="11" font-style="italic" fill="#6B6F7B">Ativo amortizado por</text>
+      <text x="130" y="286" text-anchor="middle" font-size="11" font-style="italic" fill="#6B6F7B">todos os clientes</text>
+      <line x1="228" y1="140" x2="252" y2="140" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar9)"/>
+      <rect x="258" y="40" width="180" height="200" rx="10" fill="#FAECE7" stroke="#993C1D"/>
+      <text x="348" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#712B13">POR CLIENTE — 14 DIAS</text>
+      <text x="348" y="102" text-anchor="middle" font-size="11.5" fill="#993C1D">Credenciais nos</text>
+      <text x="348" y="120" text-anchor="middle" font-size="11.5" fill="#993C1D">conectores prontos</text>
+      <text x="348" y="142" text-anchor="middle" font-size="11.5" fill="#993C1D">Carga da base (KNIME)</text>
+      <text x="348" y="164" text-anchor="middle" font-size="11.5" fill="#993C1D">Validação e ajuste de tom</text>
+      <text x="348" y="186" text-anchor="middle" font-size="11.5" fill="#993C1D">Go-live: treino de 30 min</text>
+      <text x="348" y="270" text-anchor="middle" font-size="11" font-style="italic" fill="#6B6F7B">Meta: menos de 28h</text>
+      <text x="348" y="286" text-anchor="middle" font-size="11" font-style="italic" fill="#6B6F7B">por implantação</text>
+      <line x1="446" y1="140" x2="470" y2="140" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar9)"/>
+      <rect x="476" y="40" width="180" height="200" rx="10" fill="#0F6E56"/>
+      <text x="566" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">OPERAÇÃO MULTI-TENANT</text>
+      <text x="566" y="102" text-anchor="middle" font-size="11.5" fill="#D3F0E6">1 plataforma, N clientes</text>
+      <text x="566" y="124" text-anchor="middle" font-size="11.5" fill="#D3F0E6">Custos e limites por conta</text>
+      <text x="566" y="146" text-anchor="middle" font-size="11.5" fill="#D3F0E6">Melhorias chegam a todos</text>
+      <text x="566" y="164" text-anchor="middle" font-size="11.5" fill="#D3F0E6">no mesmo dia</text>
+      <text x="566" y="186" text-anchor="middle" font-size="11.5" fill="#D3F0E6">Infra elástica</text>
+      <text x="566" y="270" text-anchor="middle" font-size="11" font-style="italic" fill="#6B6F7B">Engenharia não cresce</text>
+      <text x="566" y="286" text-anchor="middle" font-size="11" font-style="italic" fill="#6B6F7B">com o nº de clientes</text>
+      </g>
+    </svg>
+    <figcaption><b>Figura 10</b> — Os três tempos da Agentic AI Factory: construção (uma vez, amortizada), instalação (14 dias por cliente, meta &lt; 28h) e operação (multi-tenant, engenharia constante).</figcaption>
+  </figure>
+</section>
+
+<footer class="doc"><div class="wrap changelog">
+  HupData · Documento interno · <strong>V3.7 — Agosto/2026</strong> · Substitui a V3.6 · Mudanças desta versão: tagline de posicionamento no cabeçalho ("Agentes de IA que assumem rotinas inteiras nas PMEs brasileiras"); nova seção <strong>Posicionamento de mercado</strong> com o mapa dores → consequências → HupData → pilares (Figura 3); figuras renumeradas.</div></footer>
+
+</body>
+</html>
