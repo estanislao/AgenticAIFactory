@@ -82,7 +82,7 @@
 
 <section id="s0">
   <h2>O modelo de escala em uma página</h2><div class="rule"></div>
-  <p>A fábrica não constrói agentes para cada cliente — ela construiu os agentes <strong>uma vez</strong> e, para cada cliente, apenas <strong>configura e instala</strong>. O produto é o <strong>catálogo completo de 8 agentes, para qualquer segmento de PME</strong>; os kits por vertical (o Kit Contabilidade incluído) são apenas recortes comerciais montados a partir dele. É a diferença entre software sob medida (que não escala) e linha de montagem com produto padronizado (que escala).</p>
+  <p>A fábrica não constrói agentes para cada cliente — ela construiu os agentes <strong>uma vez</strong> e, para cada cliente, apenas <strong>configura e instala</strong>. O produto é o <strong>catálogo completo de 8 agentes, para qualquer segmento de PME</strong>; os kits por vertical (o Kit Adminstração incluído) são apenas recortes comerciais montados a partir dele. É a diferença entre software sob medida (que não escala) e linha de montagem com produto padronizado (que escala).</p>
 
   <figure>
     <svg viewBox="0 0 680 780" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Esteira escalável da fábrica com o catálogo de 8 agentes">
@@ -136,7 +136,7 @@
       <text x="60" y="432" font-family="Archivo" font-size="14" font-weight="600" fill="#444441">Por segmento — kits montados do catálogo (recorte comercial)</text>
       <g font-family="Public Sans">
         <rect x="60" y="450" width="176" height="72" rx="8" fill="#FAECE7" stroke="#993C1D"/>
-        <text x="148" y="478" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Kit Contabilidade</text>
+        <text x="148" y="478" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Kit Adminstração</text>
         <text x="148" y="498" text-anchor="middle" font-size="11.5" fill="#993C1D">Bob · Adam · Vera (piloto)</text>
         <rect x="252" y="450" width="176" height="72" rx="8" fill="#FAECE7" stroke="#993C1D"/>
         <text x="340" y="478" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Kit Comercial</text>
@@ -283,7 +283,7 @@
     <tr><td>Pricing de referência</td><td>Ticket "R$ 980 a R$ 2.400/mês"</td><td>Tabela vigente: Start R$ 750 (2M típico / 4M teto) e Business Basic R$ 980 (5M+ tokens)</td></tr>
     <tr><td>Cost Guard</td><td>Travas por interações/requisições</td><td>Travas por <strong>tokens</strong> contra a franquia; bulk contado por item processado</td></tr>
     <tr><td>Canal</td><td>Não tratado</td><td><strong>Starter não é vendido no canal direto</strong> — onboarding do Starter desenhado para o Integrador</td></tr>
-    <tr><td>Produto</td><td>"Kit Setor-Farol" como unidade</td><td><strong>Catálogo de 8 agentes para qualquer segmento</strong>; kits como recortes comerciais ("Kit Contabilidade" / agente "Bob" padronizados)</td></tr>
+    <tr><td>Produto</td><td>"Kit Setor-Farol" como unidade</td><td><strong>Catálogo de 8 agentes para qualquer segmento</strong>; kits como recortes comerciais ("Kit Adminstração" / agente "Bob" padronizados)</td></tr>
     <tr><td>Integrações</td><td>WorkBridge como camada de tradução de texto</td><td>Tool use nativo + conectores padrão <strong>MCP</strong> reutilizáveis entre kits</td></tr>
     <tr><td>COGS</td><td>Apenas cloud (R$ 60–120/mês)</td><td>COGS completo: LLM + WhatsApp por categoria + BSP + conectores ERP + cloud</td></tr>
     <tr><td>Qualidade</td><td>Testes apenas no onboarding (gate único)</td><td>Suíte contínua de evals + versionamento de prompts por kit</td></tr>
@@ -322,11 +322,11 @@
   <h3>2.3 Catálogo e kits por segmento</h3>
   <p>O catálogo completo — Huxley (marketing), Diana (prospecção), Marcel (comercial), Vera (RH e pessoas), Bob (backoffice e gestão), Adam (finanças), Suporte N1 (atendimento) e Simon.AI (previsão de demanda) — atende <strong>qualquer segmento de PME</strong>. Os kits são recortes comerciais por vertical, porque o pitch focado converte melhor em cada ICP:</p>
   <ul>
-    <li><strong>Kit Contabilidade (kit-farol do piloto):</strong> Bob + Adam + Vera — prazos e obrigações fiscais, recebíveis e cobrança humanizada, triagem de currículos e prazos trabalhistas.</li>
+    <li><strong>Kit Adminstração (kit-farol do piloto):</strong> Bob + Adam + Vera — prazos e obrigações fiscais, recebíveis e cobrança humanizada, triagem de currículos e prazos trabalhistas.</li>
     <li><strong>Kit Comercial:</strong> Huxley + Diana + Marcel — atração, priorização de leads e tração de deals até o fechamento.</li>
     <li><strong>Composição livre:</strong> qualquer combinação do catálogo, definida no diagnóstico — nenhum agente é exclusivo de vertical.</li>
   </ul>
-  <p>O pitch para contabilidades usa exclusivamente o Kit Contabilidade; o catálogo completo permanece disponível para expansão pós-prova de valor (seção 6, Etapa 5).</p>
+  <p>O pitch para contabilidades usa exclusivamente o Kit Adminstração; o catálogo completo permanece disponível para expansão pós-prova de valor (seção 6, Etapa 5).</p>
 </section>
 
 <section id="s3">
@@ -341,8 +341,8 @@
   </ul>
   <p><strong>Inventário de conectores certificados</strong> — artefato vivo; nenhum conector entra no catálogo sem passar pela suíte de evals com o inventário atualizado:</p>
   <table><tr><th>Conector</th><th>Agentes que o usam</th><th>Crítico p/ onboarding?</th><th>Custo externo</th></tr>
-    <tr><td>Omie API</td><td>Bob, Adam</td><td>Sim (Kit Contabilidade)</td><td>A validar por conector</td></tr>
-    <tr><td>Conta Azul API</td><td>Bob, Adam</td><td>Sim (Kit Contabilidade)</td><td>A validar por conector</td></tr>
+    <tr><td>Omie API</td><td>Bob, Adam</td><td>Sim (Kit Adminstração)</td><td>A validar por conector</td></tr>
+    <tr><td>Conta Azul API</td><td>Bob, Adam</td><td>Sim (Kit Adminstração)</td><td>A validar por conector</td></tr>
     <tr><td>Pipedrive</td><td>Marcel, Diana</td><td>Sim (Kit Comercial)</td><td>A validar por conector</td></tr>
     <tr><td>WhatsApp (via BSP)</td><td>Todos os agentes</td><td>Sim</td><td>Variável — repasse por categoria de mensagem (seção 5)</td></tr>
     <tr><td>Teams / E-mail</td><td>Todos os agentes</td><td>Sim</td><td>Sem custo adicional conhecido — a validar</td></tr>
